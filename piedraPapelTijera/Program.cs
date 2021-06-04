@@ -12,27 +12,35 @@ namespace piedraPapelTijera
         {
             Console.WriteLine("Bienvenido al juego Piedra, Papel o Tijera\nIngrese un Nº segun lo que quiera hacer\n ");
             Console.WriteLine("1- Nuevo Juego \n2- Salir\n\n");//Solo hay 2 opciones: jugar 1 vs 1 o salir
-            int menu = Console.ReadLine()
+            int menu = int.Parse(Console.ReadLine());         // Transformo el string en Int 
 
-            generarMenu();
+            generarMenu(menu);
 
             Console.ReadKey();
         }
-        static void generarMenu()
+        static void generarMenu(int menu)
         {
-            switch()
+            if( menu == 1 ){
+                Console.WriteLine("¿En que modo quiere jugar?\n3- Vs CPU\n4- Vs Otra Persona\n")
+            switch ()
+                {
+                    case 3:
+                        vsMaquina();
+                        break;
+                    case 4:
+                        vsJugador();
+                        break;
+                    default:
+                        break;
+                }
+            }else
             {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
+                break;
             }
         }
         static void vsMaquina()
         {
-
+            Console.WriteLine("ESTO LO VOY A HACER SI ANDA");
         }
 
         static void vsJugador()
