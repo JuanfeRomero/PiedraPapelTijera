@@ -50,14 +50,13 @@ namespace piedraPapelTijera
             int jugador1, jugador2, puntaje1 = 0, puntaje2 = 0;
             string p1, p2;
             string opciones = "1.Piedra\n2.Papel\n3.Tijeras";
-            while((puntaje1 != (puntaje2+2) || puntaje2 != (puntaje1 + 2)) && !(puntaje1 == 3 && puntaje2 == 3))
+            while(puntaje1 != 3 && puntaje2 != 3)
             {
                 Console.WriteLine("Puntaje actual: \nJugador 1: {0}\nJugador 2: {1}", puntaje1, puntaje2);
 
                 Console.WriteLine("Jugador 1. Ingrese una de las siguientes opciones: \n" + opciones);
                 ConsoleKeyInfo input = Console.ReadKey();
                 jugador1 = int.Parse(input.KeyChar.ToString());
-                Console.Clear();
 
                 Console.WriteLine("Jugador 2. Ingrese una de las siguientes opciones: \n" + opciones);
                 input = Console.ReadKey();
@@ -76,9 +75,11 @@ namespace piedraPapelTijera
                         break;
                     case 1:
                         Console.WriteLine("JUGADOR 1 GANADOR!");
+                        puntaje1++;
                         break;
                     case 2:
                         Console.WriteLine("JUGADOR 2 GANADOR!");
+                        puntaje2++;
                         break;
                     default:
                         Console.WriteLine("OPCION INGRESADA INCORRECTA, NO CONTEST");
