@@ -16,13 +16,15 @@ namespace piedraPapelTijera
 
             generarMenu(menu);
 
+            Console.WriteLine("FINAL DEL PROGRAMA ALCANZADO");
             Console.ReadKey();
         }
         static void generarMenu(int menu)
         {
             if( menu == 1 ){
-                Console.WriteLine("¿En que modo quiere jugar?\n3- Vs CPU\n4- Vs Otra Persona\n")
-            switch ()
+                Console.WriteLine("¿En que modo quiere jugar?\n3- Vs CPU\n4- Vs Otra Persona\n");
+                    menu = int.Parse(Console.ReadLine());
+            switch (menu)
                 {
                     case 3:
                         vsMaquina();
@@ -35,7 +37,7 @@ namespace piedraPapelTijera
                 }
             }else
             {
-                break;
+                Console.WriteLine("Adios\n");
             }
         }
         static void vsMaquina()
@@ -50,6 +52,8 @@ namespace piedraPapelTijera
             string opciones = "1.Piedra\n2.Papel\n3.Tijeras";
             while((puntaje1 != (puntaje2+2) || puntaje2 != (puntaje1 + 2)) && !(puntaje1 == 3 && puntaje2 == 3))
             {
+                Console.WriteLine("Puntaje actual: \nJugador 1: {0}\nJugador 2: {1}", puntaje1, puntaje2);
+
                 Console.WriteLine("Jugador 1. Ingrese una de las siguientes opciones: \n" + opciones);
                 ConsoleKeyInfo input = Console.ReadKey();
                 jugador1 = int.Parse(input.KeyChar.ToString());
@@ -81,6 +85,7 @@ namespace piedraPapelTijera
                         break;
                 }
             }
+            Console.WriteLine("Puntaje Final: \nJugador 1: {0}\nJugador 2: {1}", puntaje1, puntaje2);
         }
 
         static string getPalabra(int opcion)
