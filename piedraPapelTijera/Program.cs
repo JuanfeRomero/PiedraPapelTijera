@@ -42,7 +42,45 @@ namespace piedraPapelTijera
         }
         static void vsMaquina()
         {
-            Console.WriteLine("ESTO LO VOY A HACER SI ANDA");
+            int jugador1, maquina, puntaje1 = 0, puntaje2 = 0;
+            string p1, p2;
+            string opciones = "1.Piedra\n2.Papel\n3.Tijeras";
+            Random random = new Random();
+            while (puntaje1 != 3 && puntaje2 != 3)
+            {
+                Console.WriteLine("Puntaje actual: \nJugador 1: {0}\nCPU: {1}", puntaje1, puntaje2);
+
+                Console.WriteLine("Jugador 1. Ingrese una de las siguientes opciones: \n" + opciones);
+                ConsoleKeyInfo input = Console.ReadKey();
+                jugador1 = int.Parse(input.KeyChar.ToString());
+
+                
+                maquina = random.Next(3)+1;
+
+                p1 = getPalabra(jugador1);
+                p2 = getPalabra(maquina);
+
+                Console.WriteLine("Jugador 1: {0}\nCPU: {1}", p1, p2);
+
+                switch (getGanador(jugador1, maquina))
+                {
+                    case 0:
+                        Console.WriteLine("AMBOS ELIGIERON LO MISMO. EMPATE");
+                        break;
+                    case 1:
+                        Console.WriteLine("JUGADOR 1 GANADOR!");
+                        puntaje1++;
+                        break;
+                    case 2:
+                        Console.WriteLine("CPU GANADOR!");
+                        puntaje2++;
+                        break;
+                    default:
+                        Console.WriteLine("OPCION INGRESADA INCORRECTA, NO CONTEST");
+                        break;
+                }
+            }
+            Console.WriteLine("Puntaje Final: \nJugador 1: {0}\nMaquina: {1}", puntaje1, puntaje2);
         }
 
         static void vsJugador()
