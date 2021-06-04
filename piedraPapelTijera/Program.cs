@@ -11,6 +11,7 @@ namespace piedraPapelTijera
         static void Main(string[] args)
         {
             Console.WriteLine("INTENTO NUMERO DOS PROGRAMA DE MIERDA TE ODIO");
+            Console.WriteLine("piedraPapelTijera");
             Console.ReadKey();
         }
         static void generarMenu()
@@ -24,11 +25,20 @@ namespace piedraPapelTijera
 
         static void vsJugador()
         {
-
+            
         }
 
-        static string getPalabra()
+        static string getPalabra(int opcion)
         {
+            switch (opcion)
+            {
+                case 1:
+                    return "piedra";
+                case 2:
+                    return "papel";
+                case 3:
+                    return "tijeras";
+            }
             return "";
         }
     }
