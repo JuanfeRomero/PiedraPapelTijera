@@ -14,9 +14,17 @@ namespace piedraPapelTijera
             Console.WriteLine("1- Nuevo Juego \n2- Salir\n\n");
             int menu = int.Parse(Console.ReadLine());         // Transformo el string en Int 
 
-            generarMenu(menu);
 
-            Console.WriteLine("FINAL DEL PROGRAMA ALCANZADO");
+            while(menu != 2) 
+            {
+                generarMenu(menu);
+                Console.WriteLine("Bienvenido al juego Piedra, Papel o Tijera\nIngrese un Nº segun lo que quiera hacer\n ");
+                Console.WriteLine("1- Nuevo Juego \n2- Salir\n\n");
+                menu = int.Parse(Console.ReadLine());   
+            }
+
+
+            Console.WriteLine("Ha salido del juego.");
             Console.ReadKey();
         }
         static void generarMenu(int menu)
@@ -48,11 +56,12 @@ namespace piedraPapelTijera
             string p1, p2;
             string opciones = "1.Piedra\n2.Papel\n3.Tijeras";
             Random random = new Random();
-            while (puntaje1 != 3 && puntaje2 != 3)
+            Console.Clear();
+            while((puntaje1 < 3 && puntaje2 < 3) || (puntaje1 == 3 && puntaje2 == 2) || (puntaje1 == 2 && puntaje2 == 3))
             {
-                Console.WriteLine("Puntaje actual: \nJugador 1: {0}\nCPU: {1}", puntaje1, puntaje2);
+                Console.WriteLine("Puntaje actual: \nJugador 1: {0}\nCPU: {1}\n", puntaje1, puntaje2);
 
-                Console.WriteLine("Jugador 1. Presione una de las siguientes opciones: \n" + opciones);
+                Console.WriteLine("Jugador 1. Solo presione una de las siguientes opciones: \n" + opciones);
                 ConsoleKeyInfo input = Console.ReadKey();
                 jugador1 = int.Parse(input.KeyChar.ToString());
 
@@ -84,7 +93,16 @@ namespace piedraPapelTijera
                         break;
                 }
             }
+
             Console.WriteLine("Puntaje Final: \nJugador 1: {0}\nCPU: {1}", puntaje1, puntaje2);
+            if(puntaje1 == puntaje2)
+            {
+                Console.WriteLine("************ HAN EMPATADO *************");
+            }
+            else
+            {
+                Console.WriteLine(puntaje1 > puntaje2 ? "***********JUGADOR 1 ES EL GANADOR FINAL***********" : "***********CPU HA GANADO***********");
+            }
         }
 
         static void vsJugador()
@@ -92,15 +110,16 @@ namespace piedraPapelTijera
             int jugador1, jugador2, puntaje1 = 0, puntaje2 = 0;
             string p1, p2;
             string opciones = "1.Piedra\n2.Papel\n3.Tijeras";
-            while(puntaje1 != 3 && puntaje2 != 3)
+            while((puntaje1 < 3 && puntaje2 < 3) || (puntaje1 == 3 && puntaje2 == 2) || (puntaje1 == 2 && puntaje2 == 3))
             {
-                Console.WriteLine("Puntaje actual: \nJugador 1: {0}\nJugador 2: {1}", puntaje1, puntaje2);
+                Console.WriteLine((puntaje1 < 3 && puntaje2 < 3) || (puntaje1 == 3 && puntaje2 == 2) || (puntaje1 == 2 && puntaje2 == 3));
+                Console.WriteLine("Puntaje actual: \nJugador 1: {0}\nJugador 2: {1}\n", puntaje1, puntaje2);
 
-                Console.WriteLine("Jugador 1. Presione una de las siguientes opciones: \n" + opciones);
+                Console.WriteLine("Jugador 1. Solo presione una de las siguientes opciones: \n" + opciones);
                 ConsoleKeyInfo input = Console.ReadKey();
                 jugador1 = int.Parse(input.KeyChar.ToString());
 
-                Console.WriteLine("Jugador 2. Presione una de las siguientes opciones: \n" + opciones);
+                Console.WriteLine("Jugador 2. Solo presione una de las siguientes opciones: \n" + opciones);
                 input = Console.ReadKey();
                 jugador2 = int.Parse(input.KeyChar.ToString());
                 Console.Clear();
@@ -129,6 +148,14 @@ namespace piedraPapelTijera
                 }
             }
             Console.WriteLine("Puntaje Final: \nJugador 1: {0}\nJugador 2: {1}", puntaje1, puntaje2);
+            if(puntaje1 == puntaje2)
+            {
+                Console.WriteLine("************ HAN EMPATADO *************");
+            }
+            else
+            {
+                Console.WriteLine(puntaje1 > puntaje2 ? "***********JUGADOR 1 ES EL GANADOR FINAL***********" : "***********JUGADOR 2 ES EL GANADOR FINAL***********");
+            }
         }
 
         static string getPalabra(int opcion)
