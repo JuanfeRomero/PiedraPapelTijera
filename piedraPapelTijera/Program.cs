@@ -33,7 +33,9 @@ namespace piedraPapelTijera
                         vsJugador();
                         break;
                     default:
+                        Console.WriteLine("Adios\n");
                         break;
+
                 }
             }else
             {
@@ -82,7 +84,7 @@ namespace piedraPapelTijera
                         break;
                 }
             }
-            Console.WriteLine("Puntaje Final: \nJugador 1: {0}\nMaquina: {1}", puntaje1, puntaje2);
+            Console.WriteLine("Puntaje Final: \nJugador 1: {0}\nCPU: {1}", puntaje1, puntaje2);
         }
 
         static void vsJugador()
