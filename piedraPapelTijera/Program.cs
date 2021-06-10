@@ -174,40 +174,48 @@ namespace piedraPapelTijera
         
         static int getGanador(int player1, int player2)
         {
+            const int PIEDRA = 1;
+            const int PAPEL = 2;
+            const int TIJERA = 3;
+
+            const int empate = 0;
+            const int ganador1 = 1;
+            const int ganador2 = 2;
+
             if(player1 == player2)
             {
-                return 0;
+                return empate;
             }
             else
             {
                 switch (player1)
                 {
-                    case 1:
-                        if (player2 == 2)
+                    case PIEDRA:
+                        if (player2 == PAPEL)
                         {
-                            return 2;
+                            return ganador2;
                         }
                         else
                         {
-                            return 1;
+                            return ganador1;
                         }
-                    case 2:
-                        if(player2 == 1)
+                    case PAPEL:
+                        if(player2 == PIEDRA)
                         {
-                            return 1;
-                        }
-                        else
-                        {
-                            return 2;
-                        }
-                    case 3:
-                        if(player2 == 1)
-                        {
-                            return 2;
+                            return ganador1;
                         }
                         else
                         {
-                            return 1;
+                            return ganador2;
+                        }
+                    case TIJERA:
+                        if(player2 == PIEDRA)
+                        {
+                            return ganador2;
+                        }
+                        else
+                        {
+                            return ganador1;
                         }
                     default:
                         return -1;
